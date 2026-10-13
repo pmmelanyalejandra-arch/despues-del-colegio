@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Y después del colegio? | Mi futuro</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap');
+
+:root {
+  --ink:#252344;
+  --muted:#77768f;
+  --purple:#7357ef;
+  --pink:#ff8eb7;
+  --yellow:#ffd66b;
+  --mint:#9de8d1;
+  --bg:#f8f7ff;
+  --white:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:'DM Sans',sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+header{height:75px;background:#ffffffed;backdrop-filter:blur(12px);
+position:sticky;top:0;z-index:10;border-bottom:1px solid #eceafa}
+.nav{max-width:1160px;margin:auto;height:100%;padding:0 22px;
+display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-family:Manrope,sans-serif;font-weight:800;font-size:19px}
+.logo span{color:var(--purple)}
+.logo small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted)}
+nav{display:flex;gap:23px;font-size:13px;font-weight:700}
+nav a:hover{color:var(--purple)}
+.menu{display:none;background:white;border:0;font-size:24px}
+.wrap{max-width:1100px;margin:auto;padding:0 22px}
+.hero{padding:66px 0 42px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;
+border-radius:30px;background:#eee9ff;color:#6548dd;font-size:12px;font-weight:800}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:Manrope,sans-serif;font-size:clamp(39px,5.6vw,66px);
+line-height:1.08;letter-spacing:-2.5px;margin:19px 0}
+h1 em{font-style:normal;color:var(--purple)}
+.lead{color:var(--muted);line-height:1.8;font-size:16px;max-width:510px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{border:0;border-radius:13px;padding:13px 19px;font-weight:800;
+font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.primary{background:var(--purple);color:white;box-shadow:0 7px 18px #7357ef30}
+.primary:hover{background:#5d42d7;transform:translateY(-1px)}
+.secondary{background:white;border:1px solid #e8e4fa}
+.art{background:#e9e4ff;border-radius:34px;min-height:340px;padding:25px;
+position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.art-circle{width:225px;height:225px;border-radius:50%;background:#c9baff;
+display:flex;align-items:center;justify-content:center;font-size:100px}
+.float{position:absolute;background:white;padding:13px 16px;border-radius:16px;
+box-shadow:0 8px 28px #33206b14;font-size:12px;font-weight:800}
+.f1{top:25px;left:15px;transform:rotate(-4deg)}
+.f2{right:12px;top:100px;transform:rotate(4deg)}
+.f3{bottom:23px;left:27px;transform:rotate(3deg)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:14px 0 58px}
+.stat{background:white;border:1px solid #eeecf7;border-radius:18px;padding:18px}
+.stat strong{display:block;font-family:Manrope;font-size:22px}
+.stat span{color:var(--muted);font-size:12px}
+section{padding:44px 0}
+.section-head{margin-bottom:24px}
+.kicker{color:var(--purple);font-weight:800;font-size:11px;letter-spacing:2px;
+text-transform:uppercase}
+h2{font-family:Manrope,sans-serif;font-size:clamp(27px,3.5vw,37px);
+letter-spacing:-1px;margin:10px 0}
+.sub{color:var(--muted);line-height:1.7;max-width:630px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:white;border:1px solid #eeecf7;border-radius:22px;padding:22px;
+transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #30205b0b}
+.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
+font-size:24px;margin-bottom:16px}
+.card h3{font-family:Manrope;font-size:17px;margin-bottom:9px}
+.card p{font-size:13px;color:var(--muted);line-height:1.7}
+.text-btn{border:0;background:none;color:var(--purple);font-weight:800;
+font-size:13px;padding:5px 0}
+.purple-bg{background:#eeeaff}
+.pink-bg{background:#fff0f5}
+.yellow-bg{background:#fff7dc}
+.mint-bg{background:#e5faf2}
+.panel{background:white;border:1px solid #eeecf7;border-radius:25px;
+padding:clamp(20px,4vw,34px)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-size:12px;font-weight:800}
+input,select{width:100%;border:1px solid #e5e2f1;border-radius:12px;
+padding:13px;background:#fcfbff;color:var(--ink);outline:none}
+input:focus,select:focus{border-color:var(--purple);box-shadow:0 0 0 3px #7357ef15}
+.result{margin-top:20px;padding:20px;border-radius:17px;background:#f0edff;
+line-height:1.7}
+.result h3{margin-bottom:8px}
+.result ol{padding-left:21px}
+.hidden{display:none!important}
+.quiz-top{display:flex;justify-content:space-between;gap:12px;
+font-size:12px;color:var(--muted);margin-bottom:12px}
+.progress{height:7px;background:#eeebf8;border-radius:9px;overflow:hidden;margin-bottom:24px}
+.progress div{height:100%;background:var(--purple);transition:width .2s}
+.question{font-family:Manrope;font-weight:800;font-size:23px;margin-bottom:20px}
+.answers{display:grid;gap:10px}
+.answer{display:flex;align-items:center;gap:12px;text-align:left;
+border:1px solid #e8e5f3;background:white;padding:15px;border-radius:14px;
+font-size:13px;font-weight:600}
+.answer:hover{border-color:var(--purple);background:#f8f6ff}
+.answer.selected{border-color:var(--purple);background:#eeeaff}
+.answer .emoji{font-size:22px}
+.quiz-controls{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.check-list{display:grid;gap:12px;margin-top:18px}
+.check-item{display:flex;align-items:flex-start;gap:12px;border:1px solid #eeecf7;
+padding:14px;border-radius:14px;font-size:13px;line-height:1.5}
+.check-item input{width:18px;height:18px;margin-top:2px;accent-color:var(--purple)}
+.check-item.done{background:#f0fcf7}
+.check-item.done span{text-decoration:line-through;color:var(--muted)}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;
+font-weight:800;margin:17px 0 8px}
+.resource{display:flex;justify-content:space-between;align-items:center;gap:15px;
+padding:15px 0;border-bottom:1px solid #f0eef7}
+.resource:last-child{border:0}
+.resource p{font-size:12px;color:var(--muted);margin:5px 0 0;line-height:1.5}
+.resource h3{font-size:14px;margin:0}
+.resource a{font-size:12px;color:var(--purple);font-weight:800;white-space:nowrap}
+.banner{background:#292448;color:white;border-radius:26px;padding:30px;
+display:flex;align-items:center;justify-content:space-between;gap:20px}
+.banner p{color:#d4cfea;font-size:13px;line-height:1.7;max-width:580px}
+footer{margin-top:55px;padding:30px 0;border-top:1px solid #eae7f5;
+color:var(--muted);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.notice{font-size:11px;color:var(--muted);line-height:1.6;margin-top:14px}
+@media(max-width:760px){
+ nav{display:none;position:absolute;top:74px;left:0;right:0;background:white;
+ padding:20px;flex-direction:column;border-bottom:1px solid #eee}
+ nav.open{display:flex}.menu{display:block}
+ .hero{padding-top:38px}.hero-grid{grid-template-columns:1fr}
+ .art{min-height:275px}.art-circle{width:175px;height:175px;font-size:78px}
+ .stats{margin-bottom:30px}.grid{grid-template-columns:1fr}
+ .form-grid,.two-col{grid-template-columns:1fr}
+ .field.full{grid-column:auto}
+ .banner{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#inicio">¿Y después<span>?</span>
+      <small>MI FUTURO, MI CAMINO</small>
+    </a>
+    <nav id="navLinks">
+      <a href="#explora">Explora</a>
+      <a href="#ruta">Mi ruta</a>
+      <a href="#test">Test vocacional</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#plan">Mi plan</a>
+    </nav>
+    <button class="menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <section class="hero" id="inicio">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">✦ TU FUTURO EMPIEZA AQUÍ</span>
+        <h1>¿Ya sabes qué estudiar? <em>¿Y después?</em></h1>
+        <p class="lead">Elegir una carrera es solo el comienzo. Descubre cómo pasar de tener una idea a construir un plan para tu vida después del colegio.</p>
+        <div class="actions">
+          <a class="btn primary" href="#ruta">Construir mi ruta ↗</a>
+          <a class="btn secondary" href="#test">No sé qué estudiar</a>
+        </div>
+      </div>
+      <div class="art" aria-label="Ilustración de estudiante">
+        <div class="art-circle">🎓</div>
+        <div class="float f1">✨ Tu futuro, tus decisiones</div>
+        <div class="float f2">🧭 Encuentra tu camino</div>
+        <div class="float f3">📚 Paso a paso</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><strong>01.</strong><span>Descubre tus opciones</span></div>
+    <div class="stat"><strong>02.</strong><span>Organiza tus decisiones</span></div>
+    <div class="stat"><strong>03.</strong><span>Empieza a avanzar</span></div>
+  </div>
+
+  <section id="explora">
+    <div class="section-head">
+      <div class="kicker">Empieza por aquí</div>
+      <h2>Tu futuro no se improvisa.</h2>
+      <p class="sub">No necesitas tener toda tu vida resuelta. Necesitas información confiable, buenas preguntas y un primer paso.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="icon purple-bg">🧭</div>
+        <h3>Encuentra tu camino</h3>
+        <p>Explora áreas profesionales y reconoce qué temas, actividades y problemas te interesan.</p>
+        <a class="text-btn" href="#test">Hacer el test →</a>
+      </article>
+      <article class="card">
+        <div class="icon pink-bg">🎓</div>
+        <h3>Investiga dónde estudiar</h3>
+        <p>Compara programas, requisitos de ingreso, modalidades y opciones de formación.</p>
+        <a class="text-btn" href="#recursos">Ver recursos →</a>
+      </article>
+      <article class="card">
+        <div class="icon yellow-bg">💸</div>
+        <h3>Planea tus gastos</h3>
+        <p>Ten en cuenta matrícula, transporte, materiales, alojamiento y posibles apoyos económicos.</p>
+        <a class="text-btn" href="#ruta">Hacer mi ruta →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="ruta">
+    <div class="section-head">
+      <div class="kicker">Personaliza tu experiencia</div>
+      <h2>Construye tu ruta después del colegio</h2>
+      <p class="sub">Completa estos datos para recibir una guía inicial de los pasos que puedes seguir.</p>
+    </div>
+    <div class="panel">
+      <form id="routeForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="career">¿Qué te gustaría estudiar?</label>
+            <input id="career" placeholder="Ej. Psicología, ingeniería, docencia..." required>
+          </div>
+          <div class="field">
+            <label for="stage">¿En qué etapa estás?</label>
+            <select id="stage" required>
+              <option value="">Selecciona una opción</option>
+              <option>Estoy en noveno</option>
+              <option>Estoy en décimo</option>
+              <option>Estoy en once</option>
+              <option>Ya me gradué</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="city">¿En qué ciudad te gustaría estudiar?</label>
+            <input id="city" placeholder="Ej. Pasto, Bogotá, Medellín">
+          </div>
+          <div class="field">
+            <label for="mode">¿Qué opción prefieres?</label>
+            <select id="mode">
+              <option>Universidad</option>
+              <option>Institución técnica o tecnológica</option>
+              <option>Normal Superior / formación docente</option>
+              <option>Aprender un oficio</option>
+              <option>Trabajar y estudiar</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="budget">¿Cómo planeas financiar tus estudios?</label>
+            <select id="budget">
+              <option>Aún necesito investigar</option>
+              <option>Con apoyo de mi familia</option>
+              <option>Buscando becas o ayudas</option>
+              <option>Trabajando y estudiando</option>
+              <option>Combinando varias opciones</option>
+            </select>
+          </div>
+          <div class="field full">
+            <button class="btn primary" type="submit">Crear mi ruta personalizada ✦</button>
+          </div>
+        </div>
+      </form>
+      <div id="routeResult" class="result hidden" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="test">
+    <div class="section-head">
+      <div class="kicker">Conócete un poco más</div>
+      <h2>Test de intereses vocacionales</h2>
+      <p class="sub">Responde qué actividades te llaman más la atención. El resultado es orientativo: no define tus capacidades ni decide tu futuro.</p>
+    </div>
+    <div class="panel">
+      <div id="quiz">
+        <div class="quiz-top">
+          <span id="qCount">Pregunta 1 de 7</span>
+          <span>Sin respuestas correctas o incorrectas</span>
+        </div>
+        <div class="progress"><div id="qProgress" style="width:14.3%"></div></div>
+        <div id="qTitle" class="question"></div>
+        <div id="qAnswers" class="answers"></div>
+        <div class="quiz-controls">
+          <button id="qBack" class="btn secondary" onclick="previousQuestion()">← Anterior</button>
+          <button id="qNext" class="btn primary" onclick="nextQuestion()">Siguiente →</button>
+        </div>
+      </div>
+      <div id="quizResult" class="result hidden" aria-live="polite"></div>
+      <div class="actions">
+        <button id="restartQuiz" class="btn secondary hidden" onclick="restartQuiz()">Volver a hacer el test</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="section-head">
+      <div class="kicker">Investiga con criterio</div>
+      <h2>Recursos para tomar mejores decisiones</h2>
+      <p class="sub">Consulta fuentes oficiales para verificar programas, fechas, requisitos y oportunidades. La disponibilidad cambia según la convocatoria.</p>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="icon purple-bg">🏛️</div>
+        <h3>Estudiar en Colombia</h3>
+        <div class="resource">
+          <div><h3>Ministerio de Educación</h3><p>Información sobre educación superior y programas.</p></div>
+          <a href="https://www.mineducacion.gov.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+        <div class="resource">
+          <div><h3>SNIES</h3><p>Consulta instituciones y programas registrados.</p></div>
+          <a href="https://snies.mineducacion.gov.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+        <div class="resource">
+          <div><h3>ICFES</h3><p>Información sobre Saber 11 y resultados.</p></div>
+          <a href="https://www.icfes.gov.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon mint-bg">💡</div>
+        <h3>Apoyos y oportunidades</h3>
+        <div class="resource">
+          <div><h3>ICETEX</h3><p>Consulta alternativas de financiación y convocatorias vigentes.</p></div>
+          <a href="https://web.icetex.gov.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+        <div class="resource">
+          <div><h3>Servicio Público de Empleo</h3><p>Explora información sobre oportunidades laborales.</p></div>
+          <a href="https://www.serviciodeempleo.gov.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+        <div class="resource">
+          <div><h3>SENA</h3><p>Conoce programas de formación técnica y tecnológica.</p></div>
+          <a href="https://www.sena.edu.co/" target="_blank" rel="noopener">Visitar ↗</a>
+        </div>
+      </div>
+    </div>
+    <p class="notice">Importante: incluir un enlace no significa que exista una beca abierta o que cumplas sus requisitos. Verifica siempre la convocatoria, sus fechas, condiciones y canales oficiales. No pagues a desconocidos por promesas de becas.</p>
+  </section>
+
+  <section id="plan">
+    <div class="section-head">
+      <div class="kicker">Pequeños pasos, grandes decisiones</div>
+      <h2>Mi plan de acción</h2>
+      <p class="sub">Marca tus avances. Tu progreso se guarda en este navegador para que puedas continuar después.</p>
+    </div>
+    <div class="panel">
+      <div class="progress-label"><span>Mi progreso</span><span id="progressText">0 de 8 tareas</span></div>
+      <div class="progress"><div id="taskProgress" style="width:0%"></div></div>
+      <div id="taskList" class="check-list"></div>
+      <div class="actions">
+        <button class="btn secondary" onclick="resetTasks()">Reiniciar checklist</button>
+        <button class="btn primary" onclick="window.print()">Guardar o imprimir mi plan ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="banner">
+      <div>
+        <h2>Tu futuro no tiene que parecerse al de nadie más.</h2>
+        <p>Está bien cambiar de opinión, descubrir nuevos intereses o necesitar más tiempo. Lo importante es informarte y avanzar con decisiones conscientes.</p>
+      </div>
+      <a class="btn" style="background:var(--yellow);color:var(--ink)" href="#ruta">Empezar ahora ↑</a>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><strong>¿Y después del colegio?</strong> · Una guía para tu siguiente paso.</span>
+    <span>Explora · Decide · Planea · Avanza</span>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function readStore(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : JSON.parse(value);
+  } catch (e) { return fallback; }
+}
+function saveStore(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+}
+
+const tasks = [
+  "Investigar tres carreras que me interesen.",
+  "Consultar planes de estudio y duración.",
+  "Comparar al menos tres instituciones.",
+  "Revisar requisitos de admisión y fechas.",
+  "Investigar becas, apoyos y financiación.",
+  "Calcular transporte, materiales y otros gastos.",
+  "Hablar con un orientador, docente o profesional.",
+  "Definir mi siguiente paso y una fecha para cumplirlo."
+];
+let completed = readStore("futuro-tasks", []);
+
+function renderTasks() {
+  $("taskList").innerHTML = "";
+  tasks.forEach((task, i) => {
+    const label = document.createElement("label");
+    label.className = "check-item" + (completed.includes(i) ? " done" : "");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = completed.includes(i);
+    checkbox.addEventListener("change", () => {
+      completed = checkbox.checked
+        ? [...completed, i]
+        : completed.filter(n => n !== i);
+      saveStore("futuro-tasks", completed);
+      renderTasks();
+    });
+    const span = document.createElement("span");
+    span.textContent = task;
+    label.append(checkbox, span);
+    $("taskList").appendChild(label);
+  });
+  $("progressText").textContent = `${completed.length} de ${tasks.length} tareas`;
+  $("taskProgress").style.width = `${completed.length / tasks.length * 100}%`;
+}
+function resetTasks() {
+  if (confirm("¿Quieres desmarcar todas las tareas?")) {
+    completed = [];
+    saveStore("futuro-tasks", completed);
+    renderTasks();
+  }
+}
+renderTasks();
+
+$("routeForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const career = $("career").value.trim();
+  const stage = $("stage").value;
+  const city = $("city").value.trim();
+  const mode = $("mode").value;
+  const budget = $("budget").value;
+  const result = $("routeResult");
+
+  const steps = [
+    `Investiga el campo laboral y el plan de estudios de ${career}.`,
+    `Busca instituciones${city ? " en " + city : " de las ciudades que te interesen"} y compara duración, modalidad y costos.`,
+    "Verifica los requisitos de admisión, las fechas y los documentos necesarios.",
+    `Organiza la financiación: ${budget.toLowerCase()}. Investiga alternativas antes de asumir deudas.`,
+    "Habla con un orientador escolar o con alguien que estudie o trabaje en esa área."
+  ];
+  if (stage === "Estoy en noveno" || stage === "Estoy en décimo") {
+    steps.unshift("Aprovecha el tiempo antes de graduarte para explorar opciones, fortalecer tus materias y conocer los requisitos de ingreso.");
+  } else {
+    steps.unshift("Elige dos o tres opciones de formación y compara sus requisitos antes de presentar una solicitud.");
+  }
+  result.replaceChildren();
+  const title = document.createElement("h3");
+  title.textContent = `Tu primera ruta: ${career}`;
+  const intro = document.createElement("p");
+  intro.textContent = `Etapa: ${stage}. Opción que te interesa: ${mode}.`;
+  const list = document.createElement("ol");
+  steps.forEach(step => {
+    const li = document.createElement("li");
+    li.textContent = step;
+    list.appendChild(li);
+  });
+  result.append(title, intro, list);
+  const note = document.createElement("p");
+  note.className = "notice";
+  note.textContent = "Esta es una guía inicial, no una lista de admisiones confirmadas. Verifica los datos en las páginas oficiales de cada institución.";
+  result.appendChild(note);
+  result.classList.remove("hidden");
+  saveStore("futuro-route", {career, stage, city, mode, budget});
+  result.scrollIntoView({behavior:"smooth", block:"nearest"});
+});
+
+const categories = {
+  "Ciencias y salud": {emoji:"🔬", careers:"medicina, enfermería, biología, química, nutrición o investigación científica", detail:"Explora las asignaturas, prácticas, duración y requisitos específicos de cada programa."},
+  "Tecnología e ingeniería": {emoji:"💻", careers:"ingeniería, programación, análisis de datos, diseño digital o ciberseguridad", detail:"Prueba proyectos pequeños y revisa qué conocimientos matemáticos y técnicos requiere cada opción."},
+  "Educación y sociedad": {emoji:"📚", careers:"docencia, pedagogía, psicología, trabajo social o ciencias sociales", detail:"Investiga las rutas de formación, las prácticas y los campos de trabajo de cada profesión."},
+  "Arte y comunicación": {emoji:"🎨", careers:"diseño, comunicación, publicidad, música, producción audiovisual o artes", detail:"Construye un portafolio de proyectos y consulta los requisitos de cada programa."},
+  "Negocios y liderazgo": {emoji:"📈", careers:"administración, economía, contabilidad, mercadeo o emprendimiento", detail:"Compara los programas y busca experiencias prácticas en proyectos o iniciativas estudiantiles."},
+  "Naturaleza y ambiente": {emoji:"🌿", careers:"biología, agronomía, veterinaria, ecología o ingeniería ambiental", detail:"Revisa las áreas científicas, las salidas de campo y las posibilidades de especialización."}
+};
+
+const questions = [
+  {q:"¿Qué actividad te gustaría hacer en un proyecto?",a:[
+    ["🔬","Investigar cómo funcionan las cosas","Ciencias y salud"],
+    ["💻","Crear una solución tecnológica","Tecnología e ingeniería"],
+    ["📚","Enseñar o ayudar a otras personas","Educación y sociedad"],
+    ["🎨","Diseñar o comunicar una idea","Arte y comunicación"],
+    ["📈","Organizar un negocio o liderar un equipo","Negocios y liderazgo"],
+    ["🌿","Cuidar la naturaleza y los animales","Naturaleza y ambiente"]]},
+  {q:"¿Qué tema te da más curiosidad?",a:[
+    ["🧬","El cuerpo humano y la ciencia","Ciencias y salud"],
+    ["🤖","La tecnología y la innovación","Tecnología e ingeniería"],
+    ["🧠","Cómo aprendemos y convivimos","Educación y sociedad"],
+    ["🎬","El arte, las historias y los medios","Arte y comunicación"],
+    ["💰","Las empresas y la economía","Negocios y liderazgo"],
+    ["🌎","Los ecosistemas y el ambiente","Naturaleza y ambiente"]]},
+  {q:"¿Cómo te gustaría aportar a la sociedad?",a:[
+    ["🩺","Contribuir al bienestar y la salud","Ciencias y salud"],
+    ["⚙️","Resolver problemas con tecnología","Tecnología e ingeniería"],
+    ["🤝","Acompañar procesos de aprendizaje","Educación y sociedad"],
+    ["📣","Transmitir ideas y crear contenidos","Arte y comunicación"],
+    ["🚀","Crear iniciativas y generar empleo","Negocios y liderazgo"],
+    ["🌱","Proteger recursos naturales","Naturaleza y ambiente"]]},
+  {q:"¿Qué tarea elegirías primero?",a:[
+    ["🧪","Hacer un experimento","Ciencias y salud"],
+    ["🧩","Resolver un reto lógico","Tecnología e ingeniería"],
+    ["📝","Preparar una explicación para alguien","Educación y sociedad"],
+    ["🖌️","Crear una propuesta visual","Arte y comunicación"],
+    ["📊","Planear un presupuesto","Negocios y liderazgo"],
+    ["🐾","Participar en un proyecto ambiental","Naturaleza y ambiente"]]},
+  {q:"¿Qué ambiente te llama más la atención?",a:[
+    ["🏥","Laboratorios o espacios de salud","Ciencias y salud"],
+    ["🖥️","Equipos tecnológicos o de desarrollo","Tecnología e ingeniería"],
+    ["🏫","Colegios o proyectos comunitarios","Educación y sociedad"],
+    ["🎥","Estudios creativos o medios","Arte y comunicación"],
+    ["🏢","Empresas o proyectos propios","Negocios y liderazgo"],
+    ["🌳","Campo o espacios naturales","Naturaleza y ambiente"]]},
+  {q:"¿Qué habilidad te gustaría desarrollar?",a:[
+    ["🔎","Analizar datos científicos","Ciencias y salud"],
+    ["🧑‍💻","Programar y diseñar sistemas","Tecnología e ingeniería"],
+    ["🗣️","Explicar, escuchar y orientar","Educación y sociedad"],
+    ["✍️","Crear historias e imágenes","Arte y comunicación"],
+    ["📋","Organizar proyectos y recursos","Negocios y liderazgo"],
+    ["🌻","Comprender los sistemas naturales","Naturaleza y ambiente"]]},
+  {q:"¿Qué proyecto te emocionaría terminar?",a:[
+    ["🧫","Una investigación científica","Ciencias y salud"],
+    ["📱","Una aplicación o dispositivo","Tecnología e ingeniería"],
+    ["👩‍🏫","Una actividad educativa para ayudar a otros","Educación y sociedad"],
+    ["🎭","Una campaña creativa o audiovisual","Arte y comunicación"],
+    ["💡","Un emprendimiento bien organizado","Negocios y liderazgo"],
+    ["🌎","Una iniciativa para mejorar el ambiente","Naturaleza y ambiente"]]}
+];
+let qIndex = 0;
+let qAnswers = Array(questions.length).fill(null);
+
+function renderQuestion() {
+  const q = questions[qIndex];
+  $("qCount").textContent = `Pregunta ${qIndex+1} de ${questions.length}`;
+  $("qProgress").style.width = `${(qIndex+1)/questions.length*100}%`;
+  $("qTitle").textContent = q.q;
+  $("qAnswers").replaceChildren();
+  q.a.forEach(([emoji, text, category]) => {
+    const button = document.createElement("button");
+    button.className = "answer" + (qAnswers[qIndex] === category ? " selected" : "");
+    const icon = document.createElement("span");
+    icon.className = "emoji";
+    icon.textContent = emoji;
+    const label = document.createElement("span");
+    label.textContent = text;
+    button.append(icon, label);
+    button.setAttribute("aria-pressed", String(qAnswers[qIndex] === category));
+    button.addEventListener("click", () => {
+      qAnswers[qIndex] = category;
+      renderQuestion();
+    });
+    $("qAnswers").appendChild(button);
+  });
+  $("qBack").disabled = qIndex === 0;
+  $("qBack").style.opacity = qIndex === 0 ? ".45" : "1";
+  $("qNext").textContent = qIndex === questions.length-1 ? "Ver resultados ✦" : "Siguiente →";
+}
+function previousQuestion() {
+  if (qIndex > 0) { qIndex--; renderQuestion(); }
+}
+function nextQuestion() {
+  if (!qAnswers[qIndex]) {
+    alert("Selecciona la opción que más te interese para continuar.");
+    return;
+  }
+  if (qIndex < questions.length - 1) {
+    qIndex++;
+    renderQuestion();
+  } else {
+    showQuizResult();
+  }
+}
+function showQuizResult() {
+  const scores = {};
+  qAnswers.forEach(answer => {
+    scores[answer] = (scores[answer] || 0) + 1;
+  });
+  const max = Math.max(...Object.values(scores));
+  const winners = Object.keys(scores).filter(k => scores[k] === max);
+  const result = $("quizResult");
+  result.replaceChildren();
+  const heading = document.createElement("h3");
+  heading.textContent = winners.length > 1
+    ? "¡Tienes intereses variados!"
+    : `${categories[winners[0]].emoji} Tu área destacada: ${winners[0]}`;
+  result.appendChild(heading);
+  const intro = document.createElement("p");
+  intro.textContent = winners.length > 1
+    ? "Tus respuestas muestran intereses en varias áreas. Puedes combinar opciones y explorarlas con calma."
+    : "Por tus respuestas, podrías explorar carreras como:";
+  result.appendChild(intro);
+  winners.forEach(winner => {
+    const title = document.createElement("p");
+    title.innerHTML = "<strong>" + winner + "</strong>: " + categories[winner].careers + ".";
+    result.appendChild(title);
+    const detail = document.createElement("p");
+    detail.textContent = categories[winner].detail;
+    result.appendChild(detail);
+  });
+  const disclaimer = document.createElement("p");
+  disclaimer.className = "notice";
+  disclaimer.textContent = "Este test explora preferencias generales; no es una evaluación psicológica ni determina qué carrera debes elegir. Investiga, conversa con un orientador y decide con información.";
+  result.appendChild(disclaimer);
+  $("quiz").classList.add("hidden");
+  result.classList.remove("hidden");
+  $("restartQuiz").classList.remove("hidden");
+  saveStore("futuro-quiz", {answers:qAnswers, winners});
+  result.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+function restartQuiz() {
+  qIndex = 0;
+  qAnswers = Array(questions.length).fill(null);
+  $("quiz").classList.remove("hidden");
+  $("quizResult").classList.add("hidden");
+  $("restartQuiz").classList.add("hidden");
+  renderQuestion();
+}
+renderQuestion();
+</script>
+</body>
+</html>
